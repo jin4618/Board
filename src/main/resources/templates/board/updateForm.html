@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Form</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<h1>Update Board</h1>
+<form th:action="@{/board/update/{password}(password=${board.password})}" method="post" th:object="${board}">
+    <input type="hidden" th:field="*{id}">  <!--error: id가 null 값으로 넘어가면서 수정이 아니라 새로 작성되서 hidden으로 넘김-->
+
+    <p>
+        <strong><label for="name">Name: </label></strong> <br>
+        <input type="text" id="name" th:field="*{name}" required/>
+    </p>
+
+    <p>
+        <strong><label for="title">Title: </label></strong> <br>
+        <input type="text" id="title" th:field="*{title}" required/>
+    </p>
+
+    <p>
+        <strong><label for="content">Content: </label></strong> <br>
+        <textarea id="content" th:field="*{content}" required></textarea>
+    </p>
+
+    <input type="hidden" th:field="*{createAt}">
+    <!--error: 마찬가지로 안 넘기면 null 값으로 들어가면서 createAt이 초기화 됨 => hidden으로 넘기면서 해결-->
+
+    <p>
+        <strong><label for="password">Password (for verification): </label></strong> <br>
+        <input type="password" id="password" th:field="*{password}" required/>
+
+        <div>
+            <h4 th:if="${pwCheckMsg} != null" th:text="${pwCheckMsg}"></h4>
+        </div>
+    </p>
+
+    <input type="submit" value="Update">
+
+</form>
+</body>
+</html>

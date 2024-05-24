@@ -1,0 +1,21 @@
+.box {
+    border: 1px solid;
+    width: 450px;
+    height: 300px;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 8px;
+    resize: none;
+    font-size: 15px;
+}
+
+.box > strong {
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 8px
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}

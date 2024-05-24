@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Write Form</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<h1>Create a New Board</h1>
+<form th:action="@{/board/write}" method="post" th:object="${board}">
+    <p>
+        <strong><label for="name">Name: </label></strong> <br>
+        <input type="text" id="name" th:field="*{name}" required/> <br>
+    </p>
+
+    <p>
+        <strong><label for="title">Title: </label></strong> <br>
+        <input type="text" id="title" th:field="*{title}" required/> <br>
+    </p>
+
+    <p>
+        <strong><label for="content">Content: </label></strong> <br>
+        <textarea id="content" th:field="*{content}" required></textarea> <br>
+    </p>
+
+    <p>
+        <strong><label for="password">Password: </label></strong> <br>
+        <input type="password" id="password" th:field="*{password}" required/> <br><br>
+    </p>
+
+    <input type="submit" value="Create">
+
+</form>
+</body>
+</html>
