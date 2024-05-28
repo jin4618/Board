@@ -41,3 +41,11 @@ input[type="submit"] {
     border-radius: 5px;
     padding-left: 10px;
 }
+
+input[type="submit"]:hover {
+    outline: 2px solid;
+}
+
+h4 {
+    color: crimson;
+}

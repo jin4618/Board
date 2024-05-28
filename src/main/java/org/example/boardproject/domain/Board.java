@@ -5,12 +5,7 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+@Data
 public class Board {
     @Id
     private Long id;

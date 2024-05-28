@@ -18,11 +18,6 @@ import java.time.ZoneId;
 public class BoardService {
     private final BoardRepository boardRepository;
 
-    // 게시글 목록 조회
-    /*public Iterable<Board> findAllList() {
-        return boardRepository.findAll();
-    }*/
-
     // 페이징 처리 목록
     public Page<Board> findAllList(Pageable pageable) {
         Pageable sortedByDateAsc = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by(Sort.Direction.DESC, "createAt"));
@@ -55,6 +50,4 @@ public class BoardService {
     public void deleteBoardById(Long id) {
         boardRepository.deleteById(id);
     }
-
-
 }

@@ -16,14 +16,6 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
     private final BoardService boardService;
 
-    // 게시글 목록 조회
-    /*@GetMapping
-    public String boardList(Model model) {
-        Iterable<Board> boards = boardService.findAllList();
-        model.addAttribute("boards", boards);
-        return "board/list";
-    }*/
-
     // 페이징 처리 목록
     @GetMapping
     public String boardList(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "5") int size) {
@@ -31,7 +23,6 @@ public class BoardController {
         Page<Board> boards = boardService.findAllList(pageable);
 
         model.addAttribute("boards", boards);
-        model.addAttribute("currentPage", page);
 
         return "board/list";
     }
@@ -80,7 +71,6 @@ public class BoardController {
         return "redirect:/board/view/" + board.getId();
     }
 
-
     // 게시글 삭제 폼
     @GetMapping("/deleteForm/{id}")
     public String boardDeleteForm(@PathVariable Long id, Model model) {
@@ -100,6 +90,4 @@ public class BoardController {
         }
         return "redirect:/board";
     }
-
-
 }

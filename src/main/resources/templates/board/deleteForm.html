@@ -10,6 +10,7 @@
 <form th:action="@{/board/delete/{password} (password=${board.password})}" method="post" th:object="${board}">
 <!--  error : @{/board/delete/{id}(id=${board.id})/{password} (password=${board.password})}  -->
     <input type="hidden" th:field="*{id}">
+
     <strong><label for="password">Password: </label></strong> <br>
     <input type="password" id="password" th:field="*{password}" required/>
     <div>
