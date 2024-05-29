@@ -59,9 +59,9 @@ public class BoardController {
     }
 
     // 게시글 수정
-    @PostMapping("/update/{password}")
-    public String boardUpdate(@PathVariable String password, @ModelAttribute("board") Board board, Model model) {
-        if (password.equals(board.getPassword())) { // 클라이언트가 작성한 비밀번호가 일치하면 수정 진행
+    @PostMapping("/update")
+    public String boardUpdate(@ModelAttribute("board") Board board, Model model) {
+        if (boardService.pwCheck(board.getId(), board.getPassword())) { // 클라이언트가 작성한 비밀번호가 일치하면 수정 진행
             boardService.updateBoard(board);
         } else {
             model.addAttribute("pwCheckMsg", "비밀번호가 일치하지 않습니다.");
@@ -80,10 +80,11 @@ public class BoardController {
     }
 
     // 게시글 삭제
-    @PostMapping("/delete/{password}")
-    public String deleteBoard(@PathVariable String password, @ModelAttribute("board") Board board, Model model) {
-        if (password.equals(board.getPassword())) { // 클라이언트가 작성한 비밀번호가 일치하면 삭제 진행
-            boardService.deleteBoardById(board.getId());
+    @PostMapping("/delete")
+    public String deleteBoard(@ModelAttribute("board") Board board, Model model) {
+        Long id = board.getId();
+        if (boardService.pwCheck(id, board.getPassword())) { // 클라이언트가 작성한 비밀번호가 일치하면 수정 진행
+            boardService.deleteBoardById(id);
         } else {
             model.addAttribute("pwCheckMsg", "비밀번호가 일치하지 않습니다.");
             return "board/deleteForm";

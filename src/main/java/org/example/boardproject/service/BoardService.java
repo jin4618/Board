@@ -50,4 +50,12 @@ public class BoardService {
     public void deleteBoardById(Long id) {
         boardRepository.deleteById(id);
     }
+
+    // 비밀번호 확인
+    public boolean pwCheck(Long id, String pw) {
+        if (pw.equals(findBoardById(id).getPassword())) {
+            return true;
+        }
+        return false;
+    }
 }

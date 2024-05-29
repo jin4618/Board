@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Update Board</h1>
-<form th:action="@{/board/update/{password}(password=${board.password})}" method="post" th:object="${board}">
+<form th:action="@{/board/update}" method="post" th:object="${board}">
     <input type="hidden" th:field="*{id}">  <!--error: id가 null 값으로 넘어가면서 수정이 아니라 새로 작성되서 hidden으로 넘김-->
     <input type="hidden" th:field="*{createAt}">
     <!--error: 마찬가지로 안 넘기면 null 값으로 들어가면서 createAt이 초기화 됨 => hidden으로 넘기면서 해결-->
