@@ -11,7 +11,7 @@
 </br>
 
 ### 2. 사용기술
-* IDE : IntelliJ 2024.1
+* IDE : IntelliJ Ultimate 2024.1
 * Famework : Spring 6.1.6
 * dependencies : Spring Boot DevTools, Lombok, Spring Web, Spring Data JDBC, Thymeleaf
 * Language : Java 21, Html 5, CSS
